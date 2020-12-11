@@ -3,6 +3,7 @@ import { Link } from "gatsby"
 import styled from "styled-components"
 import { useFlexSearch } from "react-use-flexsearch"
 import * as queryString from "query-string"
+import Image from "gatsby-image"
 
 import { rhythm } from "../utils/typography"
 
@@ -88,6 +89,7 @@ const AllPosts = ({ posts }) => (
             }}
           >
             <Link style={{ boxShadow: `none` }} to={`/blog${node.fields.slug}`}>
+              <Image fixed={node.frontmatter.thumbnail.childImageSharp.fixed} />
               {title}
             </Link>
           </h3>
@@ -104,6 +106,7 @@ const AllPosts = ({ posts }) => (
 )
 
 const SearchPosts = ({ posts, localSearchBlog, location, navigate }) => {
+  console.log("SearchPosts -> posts", posts)
   const { search } = queryString.parse(location.search)
   const [query, setQuery] = useState(search || "")
 
