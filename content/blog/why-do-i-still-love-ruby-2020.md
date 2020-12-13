@@ -5,7 +5,6 @@ title: " Why do I still love ruby in 2020?"
 description: Ruby on Rails
 thumbnail: ../assets/ruby.png
 ---
-
 ## Happiness
 
 > I knew many languages before I created Ruby, but I was never fully satisfied with them. They were uglier, tougher, more complex, or more simple than I expected. Throughout the development of the Ruby language, I’ve focused my energies on making programming faster and easier. Ruby is designed to make programmers happy.- **Yukihiro Matsumoto (Matz)**
@@ -38,7 +37,7 @@ When Twitter moved out of Ruby on Rails to Scala, that is a shocking bad news wi
 
 However, a real-life example shows us Shopify who is able to scale and support over 500,000 businesses at a time with Ruby on Rails.
 
-![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/f156cd78-33c9-442a-bd90-ff42c79c498d/Untitled.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/f156cd78-33c9-442a-bd90-ff42c79c498d/Untitled.png)
+![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/f156cd78-33c9-442a-bd90-ff42c79c498d/Untitled.png](../assets/rails.png)
 
 3. **RoR & Machine Learning**
 
@@ -62,7 +61,7 @@ Ultimately, the Ruby founder wants Ruby to be at least 3x faster than the curren
 
 Let's look at the average salary of Ruby developers in 2020 chart, you will see. Ruby's still in top 5 of the world in 2020
 
-![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/11287794-9efe-49ea-9a41-dbd26f013c3e/Untitled.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/11287794-9efe-49ea-9a41-dbd26f013c3e/Untitled.png)
+![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/11287794-9efe-49ea-9a41-dbd26f013c3e/Untitled.png](../assets/salary.png)
 
 Sometimes people believe that if nobody is talking about a technology then it means that/ this technology is dying. Well, this is not the case here. It only means that the peak of Ruby on Rails’s popularity has passed and the period of stability has come.
 
