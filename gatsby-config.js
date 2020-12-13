@@ -41,7 +41,11 @@ module.exports = {
                   thumbnail {
                     childImageSharp {
                       fixed(width: 250, height: 250) {
-                        ...GatsbyImageSharpFixed
+                        base64
+                        width
+                        height
+                        src
+                        srcSet
                       }
                     }
                   }

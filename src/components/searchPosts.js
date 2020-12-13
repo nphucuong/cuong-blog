@@ -41,6 +41,11 @@ const SearchBar = styled.div`
     outline: none;
   }
 `
+const Row = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+`
 
 const SearchedPosts = ({ results }) =>
   results.length > 0 ? (
@@ -83,22 +88,29 @@ const AllPosts = ({ posts }) => (
       const title = node.frontmatter.title || node.fields.slug
       return (
         <div key={node.fields.slug}>
-          <h3
-            style={{
-              marginBottom: rhythm(1 / 4),
-            }}
-          >
-            <Link style={{ boxShadow: `none` }} to={`/blog${node.fields.slug}`}>
-              <Image fixed={node.frontmatter.thumbnail.childImageSharp.fixed} />
-              {title}
-            </Link>
-          </h3>
-          <small>{node.frontmatter.date}</small>
-          <p
-            dangerouslySetInnerHTML={{
-              __html: node.frontmatter.description || node.excerpt,
-            }}
-          />
+          <Row>
+            <Image fixed={node.frontmatter.thumbnail.childImageSharp.fixed} />
+            <div>
+              <h3
+                style={{
+                  marginBottom: rhythm(1 / 4),
+                }}
+              >
+                <Link
+                  style={{ boxShadow: `none` }}
+                  to={`/blog${node.fields.slug}`}
+                >
+                  {title}
+                </Link>
+              </h3>
+              <small>{node.frontmatter.date}</small>
+              <p
+                dangerouslySetInnerHTML={{
+                  __html: node.frontmatter.description || node.excerpt,
+                }}
+              />
+            </div>
+          </Row>
         </div>
       )
     })}
@@ -106,7 +118,6 @@ const AllPosts = ({ posts }) => (
 )
 
 const SearchPosts = ({ posts, localSearchBlog, location, navigate }) => {
-  console.log("SearchPosts -> posts", posts)
   const { search } = queryString.parse(location.search)
   const [query, setQuery] = useState(search || "")
 
