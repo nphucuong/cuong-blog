@@ -3,8 +3,9 @@ path: why-do-i-still-love-ruby-2020
 date: 2020-11-04T09:43:34.196Z
 title: " Why do I still love ruby in 2020?"
 description: Ruby on Rails
-thumbnail: ../assets/ruby.png
+thumbnail: ../assets/ruby-on-rails.png
 ---
+
 ## Happiness
 
 > I knew many languages before I created Ruby, but I was never fully satisfied with them. They were uglier, tougher, more complex, or more simple than I expected. Throughout the development of the Ruby language, I’ve focused my energies on making programming faster and easier. Ruby is designed to make programmers happy.- **Yukihiro Matsumoto (Matz)**

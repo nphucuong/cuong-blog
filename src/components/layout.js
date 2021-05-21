@@ -3,68 +3,35 @@ import { Link } from "gatsby"
 import styled from "styled-components"
 
 import { rhythm, scale } from "../utils/typography"
-
+import "../styles/index.scss"
 class Layout extends React.Component {
   render() {
     const { location, title, children } = this.props
-    const rootPath = `${__PATH_PREFIX__}/`
-    const blogPath = `${__PATH_PREFIX__}/blog/`
-    let header
+    // const blogPath = `${__PATH_PREFIX__}/blog/`
 
-    if (location.pathname === rootPath || location.pathname === blogPath) {
-      header = (
-        <h1
-          style={{
-            ...scale(1.5),
-            marginBottom: rhythm(1.5),
-            marginTop: 0,
-          }}
-        >
-          <Link
-            style={{
-              boxShadow: `none`,
-              textDecoration: `none`,
-              color: `inherit`,
-            }}
-            to={location.pathname === blogPath ? `/blog/` : `/`}
-          >
-            {title}
-          </Link>
-        </h1>
-      )
-    } else {
-      header = (
-        <h3
-          style={{
-            fontFamily: `Roboto`,
-            marginTop: 0,
-          }}
-        >
-          <Link
-            style={{
-              boxShadow: `none`,
-              textDecoration: `none`,
-              color: `inherit`,
-            }}
-            to={`/blog/`}
-          >
-            {title}
-          </Link>
-        </h3>
-      )
-    }
+    const header = (
+      <nav>
+        <img src="../logo.svg" alt="Gatsby Scene" />
+        <div>
+          <a className="item">About</a>
+          <a className="item">Blog</a>
+          <a className="item">Contact</a>
+        </div>
+      </nav>
+    )
+
     return (
       <Wrapper>
         <div
           style={{
             marginLeft: `auto`,
             marginRight: `auto`,
-            maxWidth: rhythm(24),
+            maxWidth: 1024,
             padding: `${rhythm(1.5)} ${rhythm(3 / 4)}`,
           }}
         >
           <header>{header}</header>
-          <main>{children}</main>
+          <Main>{children}</Main>
         </div>
         <Footer>
           © {new Date().getFullYear()}, Built with
@@ -78,6 +45,12 @@ class Layout extends React.Component {
 
 const Wrapper = styled.div`
   min-height: 100vh;
+`
+
+const Main = styled.main`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `
 
 const Footer = styled.footer`

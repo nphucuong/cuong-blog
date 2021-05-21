@@ -4,15 +4,16 @@ import styled from "styled-components"
 import { useFlexSearch } from "react-use-flexsearch"
 import * as queryString from "query-string"
 import Image from "gatsby-image"
+import Img from "gatsby-image/withIEPolyfill"
 
 import { rhythm } from "../utils/typography"
 
 const SearchBar = styled.div`
   display: flex;
   border: 1px solid #dfe1e5;
-  border-radius: 10px;
+  border-radius: 12px;
   margin: 0 auto ${rhythm(1)};
-  width: 100%;
+  width: 50%;
   height: 3rem;
   background: #fdfdfd;
 
@@ -43,8 +44,14 @@ const SearchBar = styled.div`
 `
 const Row = styled.div`
   display: flex;
-  flex-direction: row;
+  flex-wrap: wrap;
   align-items: center;
+  justify-content: center;
+`
+
+const Column = styled.div`
+  width: 30%;
+  margin-right: 30px;
 `
 
 const SearchedPosts = ({ results }) =>
@@ -84,36 +91,41 @@ const SearchedPosts = ({ results }) =>
 
 const AllPosts = ({ posts }) => (
   <div style={{ margin: "20px 0 40px" }}>
-    {posts.map(({ node }) => {
-      const title = node.frontmatter.title || node.fields.slug
-      return (
-        <div key={node.fields.slug}>
-          <Row>
-            <Image fixed={node.frontmatter.thumbnail.childImageSharp.fixed} />
-            <div>
-              <h3
-                style={{
-                  marginBottom: rhythm(1 / 4),
-                }}
-              >
-                <Link
-                  style={{ boxShadow: `none` }}
-                  to={`/blog${node.fields.slug}`}
-                >
-                  {title}
-                </Link>
-              </h3>
-              <small>{node.frontmatter.date}</small>
-              <p
-                dangerouslySetInnerHTML={{
-                  __html: node.frontmatter.description || node.excerpt,
-                }}
+    <Row>
+      {posts.map(({ node }) => {
+        const title = node.frontmatter.title || node.fields.slug
+        return (
+          <div key={node.fields.slug}>
+            <Column>
+              <Image
+                style={{ width: "100%", heigth: "200px" }}
+                fixed={node.frontmatter.thumbnail.childImageSharp.fixed}
               />
-            </div>
-          </Row>
-        </div>
-      )
-    })}
+              <div>
+                <h3
+                  style={{
+                    marginBottom: rhythm(1 / 4),
+                  }}
+                >
+                  <Link
+                    style={{ boxShadow: `none` }}
+                    to={`/blog${node.fields.slug}`}
+                  >
+                    {title}
+                  </Link>
+                </h3>
+                <small>{node.frontmatter.date}</small>
+                <p
+                  dangerouslySetInnerHTML={{
+                    __html: node.frontmatter.description || node.excerpt,
+                  }}
+                />
+              </div>
+            </Column>
+          </div>
+        )
+      })}
+    </Row>
   </div>
 )
 

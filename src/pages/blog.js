@@ -1,11 +1,11 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
 
-import Bio from "../components/bio"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Button from "../components/button"
 import SearchPosts from "../components/searchPosts"
+import styled from "styled-components"
 
 class Blog extends React.Component {
   render() {
@@ -16,8 +16,15 @@ class Blog extends React.Component {
 
     return (
       <Layout location={this.props.location} title={siteTitle}>
-        <SEO title="All posts" />
-        <Bio />
+        <HeaderSection>
+          <Header>Blog</Header>
+          <HeaderDescription>
+            We don’t just design and develop. Sometimes we also write down
+            words. Here we share our insights and findings from our daily work
+            at Fintory.
+          </HeaderDescription>
+        </HeaderSection>
+        <SEO title="Blog" />
         <SearchPosts
           posts={posts}
           localSearchBlog={localSearchBlog}
@@ -33,6 +40,25 @@ class Blog extends React.Component {
 }
 
 export default Blog
+
+const HeaderSection = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 66.66%;
+`
+
+const Header = styled.h1`
+  font-size: 72px;
+  font-family: "Open Sans";
+  font-weight: bold;
+`
+
+const HeaderDescription = styled.p`
+  font-size: 18px;
+  font-family: "Inter";
+  text-align: center;
+`
 
 export const pageQuery = graphql`
   query {
@@ -58,7 +84,7 @@ export const pageQuery = graphql`
             description
             thumbnail {
               childImageSharp {
-                fixed(width: 250, height: 250) {
+                fixed {
                   base64
                   width
                   height

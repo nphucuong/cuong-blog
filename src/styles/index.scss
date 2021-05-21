@@ -1,0 +1,11 @@
+nav {
+  display: flex;
+  flex: 1;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 20px;
+
+  .item {
+    margin-left: 10px;
+  }
+}

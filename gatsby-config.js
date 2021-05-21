@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
     // edit below
-    title: `Gatsby Starter Personal Blog`,
+    title: `NPC Dev`,
     author: `Gatsby`,
     description: `A starter personal blog with styled components, dark mode, and Netlify CMS.`,
     siteUrl: `https://gatsby-starter-blog-demo.netlify.com/`,
@@ -15,6 +15,7 @@ module.exports = {
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     `gatsby-plugin-offline`,
+    `gatsby-plugin-sass`,
     `gatsby-plugin-react-helmet`,
     {
       resolve: "gatsby-plugin-local-search",
@@ -40,7 +41,7 @@ module.exports = {
                   date(formatString: "MMMM DD, YYYY")
                   thumbnail {
                     childImageSharp {
-                      fixed(width: 250, height: 250) {
+                      fixed {
                         base64
                         width
                         height
