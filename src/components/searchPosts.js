@@ -45,13 +45,12 @@ const SearchBar = styled.div`
 const Row = styled.div`
   display: flex;
   flex-wrap: wrap;
-  align-items: center;
   justify-content: center;
 `
 
 const Column = styled.div`
+  margin-right: 20px;
   width: 30%;
-  margin-right: 30px;
 `
 
 const SearchedPosts = ({ results }) =>
@@ -70,7 +69,10 @@ const SearchedPosts = ({ results }) =>
               marginBottom: rhythm(1 / 4),
             }}
           >
-            <Link style={{ boxShadow: `none` }} to={`/blog${slug}`}>
+            <Link
+              style={{ boxShadow: `none`, color: "#000" }}
+              to={`/blog${slug}`}
+            >
               {title}
             </Link>
           </h3>
@@ -95,34 +97,32 @@ const AllPosts = ({ posts }) => (
       {posts.map(({ node }) => {
         const title = node.frontmatter.title || node.fields.slug
         return (
-          <div key={node.fields.slug}>
-            <Column>
-              <Image
-                style={{ width: "100%", heigth: "200px" }}
-                fixed={node.frontmatter.thumbnail.childImageSharp.fixed}
-              />
-              <div>
-                <h3
-                  style={{
-                    marginBottom: rhythm(1 / 4),
-                  }}
+          <Column key={node.fields.slug}>
+            <Image
+              style={{ width: "100%", height: "200px" }}
+              fixed={node.frontmatter.thumbnail.childImageSharp.fixed}
+            />
+            <div>
+              <h3
+                style={{
+                  marginBottom: rhythm(1 / 4),
+                }}
+              >
+                <Link
+                  style={{ boxShadow: `none` }}
+                  to={`/blog${node.fields.slug}`}
                 >
-                  <Link
-                    style={{ boxShadow: `none` }}
-                    to={`/blog${node.fields.slug}`}
-                  >
-                    {title}
-                  </Link>
-                </h3>
-                <small>{node.frontmatter.date}</small>
-                <p
-                  dangerouslySetInnerHTML={{
-                    __html: node.frontmatter.description || node.excerpt,
-                  }}
-                />
-              </div>
-            </Column>
-          </div>
+                  {title}
+                </Link>
+              </h3>
+              <small>{node.frontmatter.date}</small>
+              <p
+                dangerouslySetInnerHTML={{
+                  __html: node.frontmatter.description || node.excerpt,
+                }}
+              />
+            </div>
+          </Column>
         )
       })}
     </Row>

@@ -15,7 +15,7 @@ class Layout extends React.Component {
         <div>
           <a className="item">About</a>
           <a className="item">Blog</a>
-          <a className="item">Contact</a>
+          <a className="item">Work</a>
         </div>
       </nav>
     )
@@ -33,11 +33,11 @@ class Layout extends React.Component {
           <header>{header}</header>
           <Main>{children}</Main>
         </div>
-        <Footer>
+        {/* <Footer>
           © {new Date().getFullYear()}, Built with
           {` `}
           <a href="https://www.gatsbyjs.org">Gatsby</a>
-        </Footer>
+        </Footer> */}
       </Wrapper>
     )
   }
